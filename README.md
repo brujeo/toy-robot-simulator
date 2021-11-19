@@ -64,17 +64,17 @@ This will execute list of already predefined commands
 > ruby play.rb
 
  > PLACE 0,0,NORTH
- > MOVE
- > REPORT
+ MOVE
+ REPORT
          * 0,1,NORTH
- > PLACE 0,0,NORTH
- > LEFT
- > REPORT
+ PLACE 0,0,NORTH
+ LEFT
+ REPORT
          * 0,0,WEST
- > PLACE 1,2,EAST
- > MOVE
- > MOVE
- > LEFT
- > MOVE
- > REPORT
+ PLACE 1,2,EAST
+ MOVE
+ MOVE
+ LEFT
+ MOVE
+ REPORT
          * 3,3,NORTH
