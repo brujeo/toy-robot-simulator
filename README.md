@@ -36,21 +36,22 @@ sufficient
 placement of the toy robot
 - Any move that would cause the robot to fall must be ignored
 - Example Input and Output:
-> o PLACE 0,0,NORTH
-  o MOVE
-  o REPORT
-    _Output: 0,1,NORTH_
-  o PLACE 0,0,NORTH
-  o LEFT
-  o REPORT
-  ▪ Output: 0,0,WEST
-  o PLACE 1,2,EAST
-  o MOVE
-  o MOVE
-  o LEFT
-  o MOVE
-  o REPORT
-    _Output: 3,3,NORTH_
+ 
+  - PLACE 0,0,NORTH
+  - MOVE
+  - REPORT
+    - Output: 0,1,NORTH_
+  - PLACE 0,0,NORTH
+  - LEFT
+  - REPORT
+    - Output: 0,0,WEST
+  - PLACE 1,2,EAST
+  - MOVE
+  - MOVE
+  - LEFT
+  - MOVE
+  - REPORT
+    - Output: 3,3,NORTH
 
 ## Running tests
 > bundle install
@@ -59,22 +60,60 @@ bin/rspec --format documentation
 
 ## Running the application:
 
+There are 2 ways to run the program : script mode and interactive
 #### Script mode
 This will execute list of already predefined commands
 > ruby play.rb
 
- - PLACE 0,0,NORTH
- - MOVE
- - REPORT
-       - 0,1,NORTH
- - PLACE 0,0,NORTH
- - LEFT
- - REPORT
-       - 0,0,WEST
- - PLACE 1,2,EAST
- - MOVE
- - MOVE
- - LEFT
- - MOVE
- - REPORT
-       - 3,3,NORTH
+- Output
+  - PLACE 0,0,NORTH
+  - MOVE
+  - REPORT
+    - Output: 0,1,NORTH
+  - PLACE 0,0,NORTH
+  - LEFT
+  - REPORT
+    - Output: 0,0,WEST
+  - PLACE 1,2,EAST
+  - MOVE
+  - MOVE
+  - LEFT
+  - MOVE
+  - REPORT
+    - Output: 3,3,NORTH
+
+#### Interactive
+This will open up a console application that will prompt you for command input and display robot position on XY matrix
+> ruby interactive.rb
+
+> Command >  PLACE 0,0,NORTH
+
+|   | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| 4 |   |   |   |   |   |
+| 3 |   |   |   |   |   |
+| 2 |   |   |   |   |   |
+| 1 |   |   |   |   |   |
+| 0 | ↑ |   |   |   |   |
+
+> Command >  MOVE
+
+|   | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| 4 |   |   |   |   |   |
+| 3 |   |   |   |   |   |
+| 2 |   |   |   |   |   |
+| 1 | ↑ |   |   |   |   |
+| 0 |   |   |   |   |   |
+
+> Command >  RIGHT
+
+|   | 0 | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|---|
+| 4 |   |   |   |   |   |
+| 3 |   |   |   |   |   |
+| 2 |   |   |   |   |   |
+| 1 |   | → |   |   |   |
+| 0 |   |   |   |   |   |
+
+type QUIT or q to exit the program
