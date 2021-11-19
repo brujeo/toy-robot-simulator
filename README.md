@@ -63,7 +63,7 @@ bin/rspec --format documentation
 This will execute list of already predefined commands
 > ruby play.rb
 
- > PLACE 0,0,NORTH
+ PLACE 0,0,NORTH
  MOVE
  REPORT
          * 0,1,NORTH
