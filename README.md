@@ -66,15 +66,15 @@ This will execute list of already predefined commands
  - PLACE 0,0,NORTH
  - MOVE
  - REPORT
-         * 0,1,NORTH
+       - 0,1,NORTH
  - PLACE 0,0,NORTH
  - LEFT
  - REPORT
-         * 0,0,WEST
+       - 0,0,WEST
  - PLACE 1,2,EAST
  - MOVE
  - MOVE
  - LEFT
  - MOVE
  - REPORT
-         * 3,3,NORTH
+       - 3,3,NORTH

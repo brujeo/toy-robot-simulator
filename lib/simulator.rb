@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'console_table'
+
 # Toy Robot Simulator
 class Simulator
   DIRECTIONS = {
@@ -69,7 +71,43 @@ class Simulator
   def report
     return unless @started
 
-    puts "\t * " + @x.to_s + ',' + @y.to_s + ',' + @f
+    puts "\s * Output: " + @x.to_s + ',' + @y.to_s + ',' + @f
+  end
+
+  def draw
+    report
+    table_config = [{ key: 'col', size: 5, title: '', justify: :center }]
+    (0..(@dimensions_x - 1)).each do |x|
+      column = { key: 'col' + x.to_s, size: 5, title: x.to_s, justify: :center }
+      table_config.push column
+    end
+
+    arrow = case @f
+            when 'NORTH'
+              '↑'
+            when 'EAST'
+              '→'
+            when 'SOUTH'
+              '↓'
+            when 'WEST'
+              '←'
+            else
+              '*'
+            end
+
+    ConsoleTable.define(table_config, borders: true) do |table|
+      (0..(@dimensions_y - 1)).each do |y|
+        pos = ((@dimensions_y - 1) - y)
+        table << {
+          'col' => pos.to_s,
+          'col0' => @x.zero? && @y == pos ? arrow : '',
+          'col1' => @x == 1 && @y == pos ? arrow : '',
+          'col2' => @x == 2 && @y == pos ? arrow : '',
+          'col3' => @x == 3 && @y == pos ? arrow : '',
+          'col4' => @x == 4 && @y == pos ? arrow : ''
+        }
+      end
+    end
   end
 
   # validate move
@@ -104,7 +142,7 @@ class Simulator
   end
 
   def exec(command_string)
-    puts ' > ' + command_string
+    puts ' * ' + command_string
     parts = command_string.split(' ')
     command = parts[0]
     args = parts[1].split(',') if parts[1]

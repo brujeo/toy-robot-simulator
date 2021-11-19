@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'rspec'
 gem 'byebug'
-
+gem 'console_table'
+gem 'rspec'
+gem 'tty-prompt'
